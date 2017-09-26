@@ -85,8 +85,8 @@ class ServicesBSN extends BaseBSN
     public function getList($param) {
 
         if (
-                !$param['position_x']
-                || !$param['position_y']
+                !isset($param['position_x'])
+                || !isset($param['position_y'])
             ) {
             $this->error[] = self::MISSING_PARAMETERS;
             return false;

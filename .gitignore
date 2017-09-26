@@ -1,0 +1,9 @@
+.idea/
+last.zip
+vendor/
+cache/
+composer.lock
+dbpatch.php
+.scannerwork
+
+app/Controllers/Tests/
