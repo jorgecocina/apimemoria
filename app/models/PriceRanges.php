@@ -28,6 +28,13 @@ class PriceRanges extends \Phalcon\Mvc\Model
     public $price;
 
     /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=true)
+     */
+    public $level;
+
+    /**
      * Initialize method for model.
      */
     public function initialize()

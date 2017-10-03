@@ -145,6 +145,7 @@ class ServicesBSN extends BaseBSN
                     return false;
                 }
                 $result[$k]['price'] = $price->price;
+                $result[$k]['price_level'] = $price->level;
             }
         }
 
@@ -177,6 +178,7 @@ class ServicesBSN extends BaseBSN
                 return false;
             }
             $result['price'] = $price->price;
+            $result['price_level'] = $price->level;
         }
 
         return $result;
