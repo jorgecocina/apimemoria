@@ -6,6 +6,7 @@ use App\Controllers\ReportsController;
 use App\Controllers\ServicesController;
 use App\Controllers\UsersController;
 use App\Controllers\PricerangesController;
+use App\Controllers\AnalyticsController;
 use \Phalcon\Mvc\Micro\Collection;
 
 // Setting DI container
@@ -85,7 +86,16 @@ $pricerangesCollection->get('/{id:[1-9][0-9]*}', 'getAction');
 //$pricerangesCollection->delete('/{id:[1-9][0-9]*}', 'deleteAction');
 $app->mount($pricerangesCollection);
 
-
+/**
+ * Analytics controller
+ */
+$analyticsCollection = new Collection();
+$analyticsCollection->setHandler(new AnalyticsController());
+$analyticsCollection->setPrefix('/analytics');
+$analyticsCollection->get('/visits/day', 'getvisitsdayAction');
+$analyticsCollection->get('/visits/month', 'getvisitsmonthAction');
+$analyticsCollection->get('/visits/year', 'getvisitsyearAction');
+$app->mount($analyticsCollection);
 // not found URLs
 $app->notFound( 
     function () use ($app) {

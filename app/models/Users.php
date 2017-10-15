@@ -58,6 +58,7 @@ class Users extends \Phalcon\Mvc\Model
      */
     public $roles_id;
 
+    public $created_at;
 
     /**
      * Initialize method for model.
@@ -118,7 +119,7 @@ class Users extends \Phalcon\Mvc\Model
                 ->hash($this->password);
 
         }
-
+        $this->created_at = date('Y-m-d H:i:s');
     }
 
     public function beforeValidationOnUpdate()
@@ -134,7 +135,7 @@ class Users extends \Phalcon\Mvc\Model
             }
         }
 
-    }
 
+    }
 
 }

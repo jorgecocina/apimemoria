@@ -12,10 +12,10 @@ return new \Phalcon\Config(
         ],
 
         'application' => [
-            'controllersDir'    => APP_DIR."/Controllers/",
-            'modelsDir'         => APP_DIR."/models/",
-            'businessDir'       => APP_DIR."/business/",
-            'helpersDir'        => APP_DIR."/helpers/",
+            'controllersDir'    => APP_DIR.'/Controllers/',
+            'modelsDir'         => APP_DIR.'/models/',
+            'businessDir'       => APP_DIR.'/business/',
+            'helpersDir'        => APP_DIR.'/helpers/',
             'exceptionsDir'     => APP_DIR.'/Exceptions/',
             'baseUri'           => "/apimemoria/",
             'publicUrl'         => "/apimemoria/",
@@ -62,6 +62,11 @@ return new \Phalcon\Config(
                     '*' => true
                 ],
                 'delete' => [
+                    '*' => true
+                ]
+            ],
+            'analitics' => [
+                'get' => [
                     '*' => true
                 ]
             ]
