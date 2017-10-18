@@ -417,7 +417,7 @@ class AnalyticsBSN  extends BaseBSN
             $tempTrack = new UserTracks();
             $tempTrack->movement_id = $param['movement_id'];
             $tempTrack->pos_x = isset($mov['pos_x'])?$mov['pos_x']:0;
-            $tempTrack->pos_x = isset($mov['pos_y'])?$mov['pos_y']:0;
+            $tempTrack->pos_y = isset($mov['pos_y'])?$mov['pos_y']:0;
             $tempTrack->classes = isset($mov['classes'])?$mov['classes']:'';
             $tempTrack->timestamp = isset($mov['timestamp'])?$mov['timestamp']:(new \DateTime('NOW'))->getTimestamp();
             if (!$tempTrack->save()) {
