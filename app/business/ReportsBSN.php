@@ -117,6 +117,37 @@ class ReportsBSN extends BaseBSN
             return false;
         }
 
+        $conditions = [];
+        if (isset($param['x_position'])) {
+            $conditions[] = 'x_position is not null';
+        }
+        if (isset($param['price'])) {
+            $conditions[] = 'price is not null';
+        }
+        if (isset($param['quality'])) {
+            $conditions[] = 'quality is not null';
+        }
+        if (isset($param['active'])) {
+            $conditions[] = 'active is not null';
+        }
+        if (isset($param['y_position'])) {
+            $conditions[] = 'y_position is not null';
+        }
+
+        $search = [
+            'conditions' => 'created_at >= :datetime: and user_id = :user_id: and (' . implode(' or ', $conditions) . ')',
+            'bind' => [
+                'datetime' => Carbon::now()->subSeconds($this->di->get('config')->votation_delay)->toDateTimeString(),
+                'user_id' => $param['user_id']
+            ]
+        ];
+
+        $search = Reports::find($search);
+        if ($search->count() > 0) {
+            $this->error[] = self::VOTE_ATEMP_ERROR;
+            return false;
+        }
+
         $report = new Reports();
         $report->user_id = $param['user_id'];
         $report->services_id = $service->id;

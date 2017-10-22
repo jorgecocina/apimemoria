@@ -31,6 +31,8 @@ class BaseBSN extends \Phalcon\DI\Injectable
 
     const LOGIN_VALIDATION_ERROR      = ['code' => '2003', 'message' => 'Error en validación. Combinación de username/password incorrecta.'];
 
+    const VOTE_ATEMP_ERROR            = ['code' => '2004', 'message' => 'Demasiados intentos de votos seguidos.'];
+
     const ERROR_DATABASE              = ['code' => '8888', 'message' => 'Query error: '];
 
     const ERROR_UNKNOW                = ['code' => '9999', 'message' => 'Unknow error: '];

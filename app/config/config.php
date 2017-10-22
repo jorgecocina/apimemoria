@@ -29,6 +29,7 @@ return new \Phalcon\Config(
         ],
 
         'max_edition_time' => '3600', //tiempo en [s]
+        'votation_delay' => '3600', //tiempo en [s]
 
         'noLoginRequired' => [
             'users' => [
