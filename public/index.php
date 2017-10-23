@@ -120,7 +120,7 @@ try {
                 }
                 if ($movement->save() && $movement->method == 'post') {
                     $post = $app->request->getPost();
-                    if (isset($post['stack_click'])) {
+                    if (isset($post['stack_click']) || isset($post['stack_over']) || isset($post['stack_click_map'])) {
                         $post['movement_id'] = $movement->id;
                         $bsn = new AnalyticsBSN();
                         $bsn->setMovements($post);
@@ -158,7 +158,7 @@ try {
     $movement->status = 500;
     if ($movement->save() && $movement->method == 'post') {
         $post = $app->request->getPost();
-        if (isset($post['stack_click'])) {
+        if (isset($post['stack_click']) || isset($post['stack_over']) || isset($post['stack_click_map'])) {
             $post['movement_id'] = $movement->id;
             $bsn = new AnalyticsBSN();
             $bsn->setMovements($post);
@@ -179,7 +179,7 @@ try {
     $movement->status = 400;
     if ($movement->save() && $movement->method == 'post') {
         $post = $app->request->getPost();
-        if (isset($post['stack_click'])) {
+        if (isset($post['stack_click']) || isset($post['stack_over']) || isset($post['stack_click_map'])) {
             $post['movement_id'] = $movement->id;
             $bsn = new AnalyticsBSN();
             $bsn->setMovements($post);
@@ -206,7 +206,7 @@ try {
     $movement->status = 404;
     if ($movement->save() && $movement->method == 'post') {
         $post = $app->request->getPost();
-        if (isset($post['stack_click'])) {
+        if (isset($post['stack_click']) || isset($post['stack_over']) || isset($post['stack_click_map'])) {
             $post['movement_id'] = $movement->id;
             $bsn = new AnalyticsBSN();
             $bsn->setMovements($post);
@@ -230,7 +230,7 @@ try {
     $movement->status = 403;
     if ($movement->save() && $movement->method == 'post') {
         $post = $app->request->getPost();
-        if (isset($post['stack_click'])) {
+        if (isset($post['stack_click']) || isset($post['stack_over']) || isset($post['stack_click_map'])) {
             $post['movement_id'] = $movement->id;
             $bsn = new AnalyticsBSN();
             $bsn->setMovements($post);
@@ -254,7 +254,7 @@ try {
     $movement->status = 401;
     if ($movement->save() && $movement->method == 'post') {
         $post = $app->request->getPost();
-        if (isset($post['stack_click'])) {
+        if (isset($post['stack_click']) || isset($post['stack_over']) || isset($post['stack_click_map'])) {
             $post['movement_id'] = $movement->id;
             $bsn = new AnalyticsBSN();
             $bsn->setMovements($post);
@@ -280,7 +280,7 @@ try {
     $movement->status = 500;
     if ($movement->save() && $movement->method == 'post') {
         $post = $app->request->getPost();
-        if (isset($post['stack_click'])) {
+        if ( isset($post['stack_click']) || isset($post['stack_over']) || isset($post['stack_click_map'])) {
             $post['movement_id'] = $movement->id;
             $bsn = new AnalyticsBSN();
             $bsn->setMovements($post);

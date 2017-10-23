@@ -408,21 +408,52 @@ class AnalyticsBSN  extends BaseBSN
             return false;
         }
 
-        if (!is_array($param['stack_click']) || count($param['stack_click']) == 0) {
-            return false;
+        $this->db->begin();
+        if (isset($param['stack_click'])) {
+            foreach ($param['stack_click'] as $mov) {
+                $tempTrack = new UserTracks();
+                $tempTrack->movement_id = $param['movement_id'];
+                $tempTrack->pos_x = isset($mov['pos_x']) ? $mov['pos_x'] : 0;
+                $tempTrack->pos_y = isset($mov['pos_y']) ? $mov['pos_y'] : 0;
+                $tempTrack->classes = isset($mov['classes']) ? $mov['classes'] : '';
+                $tempTrack->timestamp = isset($mov['timestamp']) ? $mov['timestamp'] : (new \DateTime('NOW'))->getTimestamp();
+                $tempTrack->type = 1;
+                if (!$tempTrack->save()) {
+                    $this->db->rollback();
+                    return false;
+                }
+            }
         }
 
-        $this->db->begin();
-        foreach ($param['stack_click'] as $mov) {
-            $tempTrack = new UserTracks();
-            $tempTrack->movement_id = $param['movement_id'];
-            $tempTrack->pos_x = isset($mov['pos_x'])?$mov['pos_x']:0;
-            $tempTrack->pos_y = isset($mov['pos_y'])?$mov['pos_y']:0;
-            $tempTrack->classes = isset($mov['classes'])?$mov['classes']:'';
-            $tempTrack->timestamp = isset($mov['timestamp'])?$mov['timestamp']:(new \DateTime('NOW'))->getTimestamp();
-            if (!$tempTrack->save()) {
-                $this->db->rollback();
-                return false;
+        if (isset($param['stack_over'])) {
+            foreach ($param['stack_over'] as $mov) {
+                $tempTrack = new UserTracks();
+                $tempTrack->movement_id = $param['movement_id'];
+                $tempTrack->pos_x = isset($mov['pos_x']) ? $mov['pos_x'] : 0;
+                $tempTrack->pos_y = isset($mov['pos_y']) ? $mov['pos_y'] : 0;
+                $tempTrack->classes = isset($mov['classes']) ? $mov['classes'] : '';
+                $tempTrack->timestamp = isset($mov['timestamp']) ? $mov['timestamp'] : (new \DateTime('NOW'))->getTimestamp();
+                $tempTrack->type = 1;
+                if (!$tempTrack->save()) {
+                    $this->db->rollback();
+                    return false;
+                }
+            }
+        }
+
+        if (isset($param['stack_click_map'])) {
+            foreach ($param['stack_click_map'] as $mov) {
+                $tempTrack = new UserTracks();
+                $tempTrack->movement_id = $param['movement_id'];
+                $tempTrack->pos_x = isset($mov['pos_x']) ? $mov['pos_x'] : 0;
+                $tempTrack->pos_y = isset($mov['pos_y']) ? $mov['pos_y'] : 0;
+                $tempTrack->classes = isset($mov['classes']) ? $mov['classes'] : '';
+                $tempTrack->timestamp = isset($mov['timestamp']) ? $mov['timestamp'] : (new \DateTime('NOW'))->getTimestamp();
+                $tempTrack->type = 1;
+                if (!$tempTrack->save()) {
+                    $this->db->rollback();
+                    return false;
+                }
             }
         }
 
