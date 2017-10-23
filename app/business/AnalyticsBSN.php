@@ -410,6 +410,7 @@ class AnalyticsBSN  extends BaseBSN
 
         $this->db->begin();
         if (isset($param['stack_click'])) {
+            $param['stack_click'] = json_decode($param['stack_click'], true);
             foreach ($param['stack_click'] as $mov) {
                 $tempTrack = new UserTracks();
                 $tempTrack->movement_id = $param['movement_id'];
@@ -426,6 +427,7 @@ class AnalyticsBSN  extends BaseBSN
         }
 
         if (isset($param['stack_over'])) {
+            $param['stack_over'] = json_decode($param['stack_over'], true);
             foreach ($param['stack_over'] as $mov) {
                 $tempTrack = new UserTracks();
                 $tempTrack->movement_id = $param['movement_id'];
@@ -442,6 +444,7 @@ class AnalyticsBSN  extends BaseBSN
         }
 
         if (isset($param['stack_click_map'])) {
+            $param['stack_click_map'] = json_decode($param['stack_click_map'], true);
             foreach ($param['stack_click_map'] as $mov) {
                 $tempTrack = new UserTracks();
                 $tempTrack->movement_id = $param['movement_id'];
