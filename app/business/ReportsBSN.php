@@ -135,10 +135,11 @@ class ReportsBSN extends BaseBSN
         }
 
         $search = [
-            'conditions' => 'created_at >= :datetime: and user_id = :user_id: and (' . implode(' or ', $conditions) . ')',
+            'conditions' => 'services_id = :service_id: and created_at >= :datetime: and user_id = :user_id: and (' . implode(' or ', $conditions) . ')',
             'bind' => [
                 'datetime' => Carbon::now()->subSeconds($this->di->get('config')->votation_delay)->toDateTimeString(),
-                'user_id' => $param['user_id']
+                'user_id' => $param['user_id'],
+                'service_id' => $param['services_id']
             ]
         ];
 
