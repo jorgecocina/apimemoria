@@ -168,7 +168,7 @@ class ReportsBSN extends BaseBSN
                     'conditions' => 'id = :price: and service_type_id = :service_type:',
                     'bind' => [
                         'price' => $param['price'],
-                        'service_type' => $service->service_type_id
+                        'service_type' => $service->service_types_id
                     ]
                 ]);
             if (!$priceRange) {
@@ -179,11 +179,11 @@ class ReportsBSN extends BaseBSN
         }
 
         if (isset($param['quality'])){
-            $report->quality = $param['quality'];
+            $report->quality = $param['quality']>5?5:$param['quality'];
         }
 
         if (isset($param['active'])){
-            $report->active = (intval($param['active']) != 0);
+            $report->active = (intval($param['active']) != 0 || $param['active'] == 'true');
         }
 
         $this->db->begin();

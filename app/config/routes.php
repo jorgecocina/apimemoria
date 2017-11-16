@@ -95,6 +95,25 @@ $analyticsCollection->setPrefix('/analytics');
 $analyticsCollection->get('/visits/day', 'getvisitsdayAction');
 $analyticsCollection->get('/visits/month', 'getvisitsmonthAction');
 $analyticsCollection->get('/visits/year', 'getvisitsyearAction');
+$analyticsCollection->get('/reports/quantity/day', 'getevaluationsquantitydayAction');
+$analyticsCollection->get('/reports/quantity/month', 'getevaluationsquantitymonthAction');
+$analyticsCollection->get('/reports/quantity/year', 'getevaluationsquantityyearAction');
+$analyticsCollection->get('/reports/duration/day', 'getevaluationstimedayAction');
+$analyticsCollection->get('/reports/duration/month', 'getevaluationstimemonthAction');
+$analyticsCollection->get('/reports/duration/year', 'getevaluationstimeyearAction');
+$analyticsCollection->get('/reports/movements/day', 'getevaluationmovementsdayAction');
+$analyticsCollection->get('/reports/movements/month', 'getevaluationmovementsmonthAction');
+$analyticsCollection->get('/reports/movements/year', 'getevaluationmovementsyearAction');
+$analyticsCollection->get('/reportsnew/quantity/day', 'getnewsquantitydayAction');
+$analyticsCollection->get('/reportsnew/quantity/month', 'getnewsquantitymonthAction');
+$analyticsCollection->get('/reportsnew/quantity/year', 'getnewsquantityyearAction');
+$analyticsCollection->get('/reportsnew/duration/day', 'getnewstimedayAction');
+$analyticsCollection->get('/reportsnew/duration/month', 'getnewstimemonthAction');
+$analyticsCollection->get('/reportsnew/duration/year', 'getnewstimeyearAction');
+$analyticsCollection->get('/reportsnew/movements/day', 'getnewsmovementsdayAction');
+$analyticsCollection->get('/reportsnew/movements/month', 'getnewsmovementsmonthAction');
+$analyticsCollection->get('/reportsnew/movements/year', 'getnewsmovementsyearAction');
+$analyticsCollection->get('/services/ranking', 'getservicerankingAction');
 $app->mount($analyticsCollection);
 // not found URLs
 $app->notFound( 
