@@ -19,7 +19,7 @@ class Validator
     }
 
     public static function is_email($email) {
-        return preg_match('#\w(\w|\d|_\-)*@\w(\w|\d|_|\-)+(\.\w)+#',$email, $arr) && $arr[0] == $email;
+        return preg_match('#\w(\w|\d|_|\-|\.)*@\w(\w|\d|_|\-)+(\.\w)+#',$email, $arr) && $arr[0] == $email;
     }
 
     public static function is_number($num, $extas = null) {
