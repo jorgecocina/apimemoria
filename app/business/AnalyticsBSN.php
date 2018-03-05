@@ -1546,7 +1546,7 @@ class AnalyticsBSN  extends BaseBSN
         $conditions = false;
 
         if (isset($param['service_type_id'])) {
-            $this->conditions['conditions'][] = 'App\Models\Services.service_type_id = :service_type:';
+            $this->conditions['conditions'][] = 'App\Models\Services.service_types_id = :service_type:';
             $this->conditions['bind']['service_type'] = $param['service_type_id'];
             $conditions = true;
         }

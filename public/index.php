@@ -116,7 +116,7 @@ try {
                 }
                 $movement->status = isset($return['status'])?$return['status']:500;
                 if (strpos($movement->uri,'users/login') !== false) {
-                    $movement->user_id = $return['data']['id'];
+                    $movement->user_id = isset($return['data']['id'])?$return['data']['id']:null;
                 }
                 if ($movement->save() && $movement->method == 'post') {
                     $post = $app->request->getPost();
